@@ -1,0 +1,36 @@
+session_name: appsemble-dev 
+start_directory: ~/
+windows:
+  - window_name: appsemble 
+    shell_command_before:
+      - cd Stage/Appsemble/appsemble2/appsemble
+    panes:
+      - shell_command:
+        - git fetch 
+        - npm install
+        - npm start
+      - shell_command:
+        - karma start
+  - window_name: appsemble-api
+    shell_command_before:
+      - workon appsemble-api
+    panes:
+      - shell_command:
+        - gcloud beta emulators datastore start --no-store-on-disk
+      - shell_command: 
+        - git stash
+        - git fetch
+        - git rebase origin/master
+        - git stash pop
+        - eval "$(gcloud beta emulators datastore env-init)"
+        - ./run.py
+  - window_name: components
+    shell_command_before:
+      - workon appsemble-components
+    panes:
+      - shell_command:
+        - git stash
+        - git fetch
+        - git rebase origin/master
+        - git stash pop
+        - ./upload.sh
