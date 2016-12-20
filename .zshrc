@@ -2,19 +2,14 @@ export TERM="xterm-256color"
 
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/guushamm/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
-#ZSH_THEME="powerlevel9k/powerlevel9k"
 
-#POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-
-#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context virtualenv dir vcs)
-#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs battery time)
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 # Uncomment the following line to use hyphen-insensitive completion. Case # sensitive completion must be off. _ and - will be interchangeable.  
@@ -55,11 +50,13 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(gitfast mvn rails sudo)
+plugins=(gitfast mvn django python tmux web-search sudo)
 
 # User configuration
 
-  export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+ZSH_TMUX_AUTOSTART=true
+
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -67,12 +64,7 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -88,6 +80,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# The fuck config
 eval $(thefuck --alias)
 
 
@@ -97,14 +91,14 @@ eval $(thefuck --alias)
 
 powerline-daemon -q
 
-. /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh
+. /usr/local/lib/python3.5/dist-packages/powerline/bindings/zsh/powerline.zsh
 
 
 # The next line updates PATH for the Google Cloud SDK.
-source '/home/guushamm/google-cloud-sdk/path.zsh.inc'
+source $HOME'/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables shell command completion for gcloud.
-source '/home/guushamm/google-cloud-sdk/completion.zsh.inc'
+source $HOME'/google-cloud-sdk/completion.zsh.inc'
 
 #       d-centralize stuff
 if [ -d "$HOME/.local/bin" ]; then
@@ -119,10 +113,10 @@ source "$(which virtualenvwrapper.sh)"
 
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre
 
-PATH=/home/guushamm/android-sdk-linux/tools:$PATH
+PATH=$HOME/android-sdk-linux/tools:$PATH
 
 
-PATH=/home/guushamm/android-sdk-linux/platform-tools:$PATH
+PATH=~/android-sdk-linux/platform-tools:$PATH
 
 export PATH
 
